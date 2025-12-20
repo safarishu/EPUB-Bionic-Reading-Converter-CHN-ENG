@@ -1,3 +1,6 @@
+Jump to [UPDATES](#updates)
+
+### What this is 
 
 This is a very rudimentary epub converter, but it will probably get things done. 
 
@@ -15,6 +18,8 @@ The result would be a "bionic_myepubbook.epub" file and a "myepubbook.epub_zip" 
 
 ### Updates
 
+#### brec_v2.py
+
 Probably a less "rudimentary" new version, but it remains to be seen.
 
 Usage:
@@ -23,4 +28,7 @@ Usage:
 pytnon brec_v2.py input.epub output.epub 
 ```
 
+#### Calibre plugin
+
+See the [calibre_plugin/README.md](calibre_plugin/README.md) for details on the Calibre plugin version of Bionic Reading.
 
