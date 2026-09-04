@@ -22,27 +22,27 @@ def auto_install_dependencies():
     if missing:
         missing_str = " ".join(missing)
         print("=" * 45)
-        print("⚠️  检测到运行当前脚本缺少以下依赖库：")
+        print("⚠️  检测到运行当前脚本缺少以下依赖库 Following dependencies missing:")
         for pkg in missing:
             print(f"  - {pkg}")
         print("=" * 45)
         
-        choice = input("\n是否立即安装所需依赖？(y/n): ").strip().lower()
+        choice = input("\n是否立即安装所需依赖？Would you like to install? (y/n): ").strip().lower()
         
         if choice == 'y':
-            print("\n🔧 正在安装依赖，请稍候...")
+            print("\n🔧 正在安装依赖，请稍候... Installing dependencies, please wait...")
             try:
                 subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
-                print("✅ 所有依赖已成功安装！\n")
+                print("✅ 所有依赖已成功安装！ All dependencies installed successfully!\n")
             except Exception as e:
-                print(f"\n❌ 自动安装失败: {e}")
-                print(f"请尝试在终端手动运行以下命令安装：\n  pip3 install {missing_str}")
-                input("\n按回车键退出...")
+                print(f"\n❌ 自动安装失败 Automatic installation failed:: {e}")
+                print(f"请尝试在终端手动运行以下命令安装 Try install manually: \n  pip3 install {missing_str}")
+                input("\n按回车键退出... Press Enter to exit...")
                 sys.exit(1)
         else:
-            print("\n已取消安装。缺失依赖无法继续执行脚本。")
-            print(f"如需手动安装，请在终端运行：\n  pip3 install {missing_str}")
-            input("\n按回车键退出...")
+            print("\n已取消安装，缺失依赖无法继续执行脚本。 Installation cancelled, unable to run script.")
+            print(f"如需手动安装，请在终端运行 To install manually, run: \n  pip3 install {missing_str}")
+            input("\n按回车键退出... Press Enter to exit...")
             sys.exit(0)
 
 auto_install_dependencies()
@@ -145,35 +145,35 @@ def get_clean_path(path_str):
 
 def main():
     print("="*45)
-    print(" 📖 EPUB 仿生阅读 (Bionic Reading) 转换器 ")
+    print(" 📖 EPUB Bionic Reading Converter 仿生阅读转换器 ")
     print("Forked from dobrosketchkun's bionic-reading-epub-converter on GitHub")
     print("="*45)
     
-    print("\n[1] 请选择加粗强度:")
-    print("  1 - 低 (轻微引导，加粗极少字母)")
-    print("  2 - 中 (默认强度，均衡加粗)")
-    print("  3 - 高 (强引导，加粗前 50% 字母)")
-    intensity = input("请输入 1/2/3 (直接回车默认 2): ").strip()
+    print("\n[1] 请选择加粗强度 Please select bolding intensity level:")
+    print("  1 - 低 Low (轻微引导，加粗极少字母)")
+    print("  2 - 中 Mid (默认强度，均衡加粗 Default)")
+    print("  3 - 高 High (强引导，加粗 50% 字母)")
+    intensity = input("请输入 Please input: 1/2/3 (直接回车默认选 2; Press Enter for default) :").strip()
     if intensity not in ['1', '2', '3']:
         intensity = '2'
 
-    print("\n[2] 请设置非加粗部分的透明度 (0-100):")
-    print("  0 为完全透明，100 为完全不透明。")
-    opacity_input = input("请输入数值 (直接回车默认 100): ").strip()
+    print("\n[2] 请设置非加粗部分的透明度 Please input opacity for unbolded letters (0-100):")
+    print("  0 为完全透明，100 为完全不透明。 0 for transparent, 100 for solid.")
+    opacity_input = input("请输入数值 (直接回车默认 100) Please input numbers, press Enter for 100: ").strip()
     try:
         opacity = int(opacity_input) if opacity_input else 100
         opacity = max(0, min(100, opacity))
     except ValueError:
-        print("输入无效，将使用默认值 100。")
+        print("输入无效，将使用默认值 100。 Invalid input; default 100 will be used.")
         opacity = 100
 
-    print("\n[3] 请拖入需要转换的 EPUB 文件，或输入绝对路径:")
-    input_path = input("文件路径: ")
+    print("\n[3] 请拖入需要转换的 EPUB 文件，或输入绝对路径 Please drag the EPUB to be converted into terminal, or input the path:")
+    input_path = input("文件路径 Path: ")
     input_path = get_clean_path(input_path)
 
     if not os.path.exists(input_path) or not input_path.lower().endswith('.epub'):
-        print(f"\n❌ 错误: 找不到文件或不是 EPUB 格式 -> {input_path}")
-        input("\n按回车键退出...")
+        print(f"\n❌ 错误: 找不到文件或不是 EPUB 格式 Error: EPUB not found -> {input_path}")
+        input("\n按回车键退出... Press Enter to exit...")
         return
 
     dir_name = os.path.dirname(input_path)
@@ -181,16 +181,17 @@ def main():
     output_path = os.path.join(dir_name, f"bionic_{base_name}")
 
     if os.path.exists(output_path):
-        print(f"\n⚠️ 警告: 输出文件 '{output_path}' 已存在，将被覆盖。")
+        print(f"\n⚠️ 警告: 输出文件 '{output_path}' 已存在，将被覆盖。 Warning: existing '{output_path}' will be overrided.")
 
     print("\n开始转换...")
+    print("\nStart converting...")
     try:
         process_epub(input_path, output_path, intensity, opacity)
-        print(f"\n✅ 转换完成！\n文件已保存至: {output_path}")
+        print(f"\n✅ 转换完成！ Successfully converted! \n文件已保存至 EPUB saved: {output_path}")
     except Exception as e:
-        print(f"\n❌ 处理过程中发生错误: {str(e)}")
+        print(f"\n❌ 处理过程中发生错误 Error occurred: {str(e)}")
         
-    input("\n按回车键退出...")
+    input("\n按回车键退出... Press Enter to exit...")
 
 if __name__ == "__main__":
     main()
