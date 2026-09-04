@@ -1,6 +1,6 @@
 # EPUB 仿生阅读转换器（交互式中英文版）
 
-### EPUB Bionic Reading Converter (Interactive CHN/ENG ver.)
+### EPUB Bionic Reading Converter
 
 这是一个将 EPUB 格式的电子书转换为 **仿生阅读 (Bionic Reading)** 排版的 Python 工具。
 
