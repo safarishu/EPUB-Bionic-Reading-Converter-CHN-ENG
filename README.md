@@ -54,7 +54,7 @@ In addition to the original script, the following features are added:
   
   2. **2-Mid**: For word-length ≤ 3, only the first letter is bolded; for word-length ≤ 6, the first two letters are bolded; for word-length ≤ 9, the first three letters are bolded; for word-length ＞ 9, the first four letters are bolded.
   
-  3. **3-high**: The first 50% letters are bolded, regardless of word-length. 
+  3. **3-High**: The first 50% letters are bolded, regardless of word-length. 
   
   如需精细客制化加粗规则，可自行修改代码中的 "def process_text(text, intensity, opacity):" 部分。
   
