@@ -2,11 +2,11 @@
 
 ### EPUB Bionic Reading Converter (Interactive CHN/ENG ver.)
 
-这是一个能将 EPUB 格式的电子书转换为“仿生阅读（Bionic Reading）”排版的 Python 工具。
+这是一个将 EPUB 格式的电子书转换为 **仿生阅读 (Bionic Reading)** 排版的 Python 工具。
 
 本项目 fork 自 `dobrosketchkun/bionic-reading-epub-converter` ，新增了部分功能。
 
-A Python tool to convert EPUB eBooks into Bionic Reading format.
+A Python tool to convert EPUB eBooks into Bionic Reading formatting.
 
 Forked from `dobrosketchkun/bionic-reading-epub-converter` with additional features.
 
