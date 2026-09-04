@@ -60,9 +60,9 @@ In addition to the original script, the following features are added:
   
   If you want to make your own bolding rule, just find "def process_text(text, intensity, opacity):" among the codes and edit.  
 
-* **未加粗部分透明度调节 / Opacity Adjust**
+* **未加粗部分不透明度调节 / Opacity Adjust**
   
-  支持设置非加粗部分的透明度（0-100）。
+  支持设置非加粗部分的不透明度（0-100）。
   
   Allows adjusting the opacity of unbolded letters (0-100).
 
