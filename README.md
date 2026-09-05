@@ -16,7 +16,7 @@ Forked from `dobrosketchkun/bionic-reading-epub-converter` with additional featu
 
 代码拿去随便用！要是不会用直接问AI~
 
-本项目仅在 mac OS 测试过；转换后的epub在苹果图书和微信读书中均可正常阅读。
+本项目仅在 mac OS 测试过；转换后的epub在苹果图书中可正常阅读。
 
 I know nothing about coding. This whole thing was made through vibe coding. All rights and gratitudes go to the original authur [[dobrosketchkun](https://github.com/dobrosketchkun/bionic-reading-epub-converter/commits?author=dobrosketchkun)].
 
@@ -68,7 +68,7 @@ In addition to the original script, the following features are added:
 
 * **交互式设置**
   
-  脚本将询问加粗强度、透明度和文件路径，根据提示选择即可。
+  脚本将询问加粗强度、透明度和文件路径，根据提示操作即可。
   
   Interactive setting - the script will ask about your preferred bolding level, opacity and the path of your epub. Just follow the instructions.
 
